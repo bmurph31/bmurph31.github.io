@@ -1,0 +1,600 @@
+:root {
+    --bg: #f5f4ef;
+    --ink: #111111;
+    --muted: #77746c;
+    --line: #cfcfc7;
+    --accent: #174f3d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site {
+    min-height: 100vh;
+}
+
+
+/* =========================
+   Navigation
+   ========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 30px;
+
+    border-bottom: 1px solid var(--line);
+
+    position: sticky;
+    top: 0;
+
+    background: rgba(245, 244, 239, 0.94);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 10;
+}
+
+.wordmark {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.nav {
+    display: flex;
+    gap: 26px;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.nav a {
+    transition: opacity 0.2s ease;
+}
+
+.nav a:hover {
+    opacity: 0.45;
+}
+
+
+/* =========================
+   Hero
+   ========================= */
+
+.hero {
+    padding: 80px 30px 105px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+
+    gap: 60px;
+
+    align-items: end;
+}
+
+.kicker {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.14em;
+
+    color: var(--muted);
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(64px, 12vw, 160px);
+
+    line-height: 0.83;
+
+    letter-spacing: -0.07em;
+
+    font-weight: 500;
+
+    margin: 0;
+
+    max-width: 900px;
+}
+
+.hero-copy {
+    font-size: 18px;
+
+    line-height: 1.45;
+
+    max-width: 430px;
+
+    margin: 28px 0 0;
+}
+
+
+/* =========================
+   Profile Photo
+   ========================= */
+
+.portrait {
+    width: 220px;
+    height: 280px;
+
+    border-radius: 50% 50% 4px 4px;
+
+    overflow: hidden;
+
+    background: #dddddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 48px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.05em;
+}
+
+.portrait img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.portrait img.is-missing {
+    display: none;
+}
+
+.portrait-fallback {
+    display: none;
+}
+
+.portrait:has(img.is-missing) .portrait-fallback {
+    display: block;
+}
+
+
+/* =========================
+   Section Intro
+   ========================= */
+
+.intro {
+    border-top: 1px solid var(--line);
+
+    padding: 22px 30px 95px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 30px;
+}
+
+.section-label {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.13em;
+
+    color: var(--muted);
+}
+
+.intro p {
+    font-size: clamp(25px, 3.5vw, 48px);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.035em;
+
+    max-width: 1000px;
+
+    margin: 0;
+}
+
+
+/* =========================
+   Experience
+   ========================= */
+
+.work {
+    border-top: 1px solid var(--line);
+
+    padding: 22px 30px 90px;
+}
+
+.section-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: baseline;
+
+    margin-bottom: 45px;
+}
+
+.section-title {
+    font-size: clamp(40px, 7vw, 92px);
+
+    letter-spacing: -0.06em;
+
+    font-weight: 500;
+
+    margin: 0;
+}
+
+.section-count {
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+.entry {
+    display: grid;
+
+    grid-template-columns: 90px minmax(0, 1fr) 280px;
+
+    gap: 25px;
+
+    padding: 27px 0;
+
+    border-top: 1px solid var(--line);
+
+    transition:
+        padding 0.25s ease;
+}
+
+.entry:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.entry:hover {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.year {
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+.entry h3 {
+    font-size: clamp(24px, 3vw, 42px);
+
+    font-weight: 500;
+
+    letter-spacing: -0.035em;
+
+    margin: 0 0 8px;
+}
+
+.entry .org {
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: var(--muted);
+}
+
+.entry p {
+    margin: 12px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    max-width: 720px;
+}
+
+.tag {
+    justify-self: end;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+
+    color: var(--muted);
+
+    padding-top: 5px;
+
+    text-align: right;
+}
+
+
+/* =========================
+   Details
+   ========================= */
+
+.details {
+    border-top: 1px solid var(--line);
+
+    padding: 22px 30px 95px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 30px;
+}
+
+.columns {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 45px;
+}
+
+.detail h3 {
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+
+    font-weight: 600;
+
+    margin: 0 0 18px;
+}
+
+.detail p,
+.detail li {
+    font-size: 15px;
+
+    line-height: 1.55;
+}
+
+.detail ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* =========================
+   Contact
+   ========================= */
+
+.contact {
+    border-top: 1px solid var(--line);
+
+    padding: 22px 30px 30px;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr;
+
+    gap: 30px;
+}
+
+.contact-main {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    align-items: end;
+}
+
+.email {
+    font-size: clamp(30px, 5vw, 72px);
+
+    letter-spacing: -0.055em;
+
+    line-height: 1;
+
+    transition: opacity 0.2s ease;
+}
+
+.email:hover {
+    opacity: 0.45;
+}
+
+.links {
+    display: flex;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.pill {
+    border: 1px solid var(--ink);
+
+    padding: 10px 14px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.pill:hover {
+    background: var(--ink);
+
+    color: var(--bg);
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid var(--line);
+
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+
+/* =========================
+   Scroll Animation
+   ========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: none;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        padding: 18px;
+    }
+
+    .nav {
+        gap: 14px;
+    }
+
+    .hero {
+        padding: 55px 18px 70px;
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .portrait {
+        width: 150px;
+        height: 190px;
+    }
+
+    .hero-copy {
+        font-size: 16px;
+    }
+
+    .intro,
+    .details,
+    .contact {
+        padding-left: 18px;
+        padding-right: 18px;
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .work {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .entry {
+        grid-template-columns: 55px 1fr;
+
+        gap: 14px;
+    }
+
+    .tag {
+        grid-column: 2;
+
+        justify-self: start;
+
+        text-align: left;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .contact-main {
+        display: block;
+    }
+
+    .links {
+        margin-top: 28px;
+    }
+
+    footer {
+        padding: 18px;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+
+/* =========================
+   Reduced Motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        transition: none;
+    }
+
+    .entry {
+        transition: none;
+    }
+}
